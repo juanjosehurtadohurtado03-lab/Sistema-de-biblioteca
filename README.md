@@ -27,6 +27,7 @@ Un sistema pequeño de pedidos y retorno de préstamoss de libros de una bibliot
     ├── lending_defeated.py  # Control de préstamos vencidos
     ├── lending.py           # Procesamiento de préstamos
     └── return_book.py       # Procesamiento de devoluciones
+```
 
 # Decision tecnica:
 Un proceso SQL de INSERT o UPDATE para este sistema me llevo a un problema grave: "¿Qué pasa si se va la conexion en medio de un proceso de insercion o actualizacion?", si sucedia algo asi habría datos guardados a medias, o incluso peor y de alli se me ocurrió no abrir la conexion desde el repo, sino desde el mismo procedimiento completo pasandole el cursor a cada uno y que ejecute un commit al finalizar al mismo cursor, y por si algo se sale se control, un rollback para seguridad.
